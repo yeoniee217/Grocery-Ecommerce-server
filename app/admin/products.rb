@@ -3,6 +3,7 @@ ActiveAdmin.register Product do
 
   form do |f|
     f.semantic_errors # shows errors on :base
+    f.object.num = Product.last.num + 1
     f.inputs          # builds an input field for every attribute
     f.inputs do
       f.input :image, as: :file
