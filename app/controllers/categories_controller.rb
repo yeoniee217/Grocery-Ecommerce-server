@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
-  def all_categories
+  def index
+    # head 404
     @categories = Category.all
     render json: @categories
   end
