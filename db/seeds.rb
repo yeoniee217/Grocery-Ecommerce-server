@@ -57,7 +57,7 @@ food = Category.where(name: "Food").take
 foods_json.each do |food_data|
   product = food.products.create(num:            product_num,
                                  name:           food_data["sr-only"],
-                                 description:    Faker::Hipster.sentence(word_count: 4, supplemental: true, random_words_to_add: 4),
+                                 description:    Faker::Hipster.paragraph_by_chars(characters: 220, supplemental: false),
                                  price:          (food_data["price__value"].to_d * 100).to_i,
                                  stock_quantity: Faker::Number.within(range: 1..70))
   downloaded_image = open(food_data["responsive-image src"])
@@ -75,7 +75,7 @@ home_living = Category.where(name: "Home & Living").take
 home_living_json.each do |home_living_data|
   product = home_living.products.create(num:            product_num,
                                         name:           home_living_data["sr-only"],
-                                        description:    Faker::Hipster.sentence(word_count: 4, supplemental: true, random_words_to_add: 4),
+                                        description:    Faker::Hipster.paragraph_by_chars(characters: 220, supplemental: false),
                                         price:          (home_living_data["price__value"].to_d * 100).to_i,
                                         stock_quantity: Faker::Number.within(range: 1..70))
   downloaded_image = open(home_living_data["responsive-image src"])
@@ -93,7 +93,7 @@ health_beauty = Category.where(name: "Health & Beauty").take
 health_beauty_json.each do |health_beauty_data|
   product = health_beauty.products.create(num:            product_num,
                                           name:           health_beauty_data["sr-only"],
-                                          description:    Faker::Hipster.sentence(word_count: 4, supplemental: true, random_words_to_add: 4),
+                                          description:    Faker::Hipster.paragraph_by_chars(characters: 220, supplemental: false),
                                           price:          (health_beauty_data["price__value"].to_d * 100).to_i,
                                           stock_quantity: Faker::Number.within(range: 1..70))
   downloaded_image = open(health_beauty_data["responsive-image src"])
@@ -111,7 +111,7 @@ pet = Category.where(name: "Pet Supplies").take
 pet_json.each do |pet_data|
   product = pet.products.create(num:            product_num,
                                 name:           pet_data["sr-only"],
-                                description:    Faker::Hipster.sentence(word_count: 4, supplemental: true, random_words_to_add: 4),
+                                description:    Faker::Hipster.paragraph_by_chars(characters: 220, supplemental: false),
                                 price:          (pet_data["price__value"].to_d * 100).to_i,
                                 stock_quantity: Faker::Number.within(range: 1..70))
   downloaded_image = open(pet_data["responsive-image src"])
