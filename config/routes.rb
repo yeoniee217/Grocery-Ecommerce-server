@@ -15,6 +15,6 @@ Rails.application.routes.draw do
       get "/:id", to: "products#show"
     end
 
-    post "/search", to: "products#search"
+    get "/search", to: "products#search"
   end
 end

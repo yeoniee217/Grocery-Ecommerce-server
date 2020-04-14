@@ -31,12 +31,12 @@ class ProductsController < ApplicationController
   def search
     puts "hello"
     puts params
-    if params[:category] == "0"
+    if params[:categoryID] == "0"
       @products = Product.where("name LIKE ?", "%#{params[:keyword]}%")
       # @category_name = "All"
     else
-      @products = Product.where("category_id = ? AND name LIKE ?", params[:category], "%#{params[:keyword]}%")
-      # @category_name = Category.find(params[:category]).name
+      @products = Product.where("category_id = ? AND name LIKE ?", params[:categoryID], "%#{params[:keyword]}%")
+      # @category_name = Category.find(params[:categoryID]).name
     end
     render :search
   end
