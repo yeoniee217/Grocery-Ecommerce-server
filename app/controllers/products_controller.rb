@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def recently_updated
-    @products = Product.where("category_id = ? AND updated_at >= ?", params[:id], 3.days.ago)
+    @products = Product.where("category_id = ? AND updated_at >= ? AND created_at <= ?", params[:id], 3.days.ago, 3.days.ago)
     render :by_category_id
   end
 
