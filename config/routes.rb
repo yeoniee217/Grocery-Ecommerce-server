@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'provinces/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -17,4 +18,11 @@ Rails.application.routes.draw do
 
     get "/search", to: "products#search"
   end
+
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+  get "/logged_in", to: "sessions#is_logged_in?"
+  resources :users, only: %i[create show]
+
+  get "/provinces", to: "provinces#index"
 end
